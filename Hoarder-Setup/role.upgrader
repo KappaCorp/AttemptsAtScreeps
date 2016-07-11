@@ -20,11 +20,11 @@ var roleUpgrader1 = {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
                                 structure.structureType == STRUCTURE_SPAWN ||
-                                structure.structureType == STRUCTURE_CONTAINER);
+                                structure.structureType == STRUCTURE_CONTAINER) && structure.energy > 5;
                     }
             });
             if(sources.length > 0) {
-                if(creep.withdraw(sources[0], RESOURCE_ENERGY, creep.carryCapacity) == ERR_NOT_IN_RANGE) {
+                if(creep.withdraw(sources[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(sources[0]);
                 }
             }
